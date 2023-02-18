@@ -154,4 +154,80 @@ const promptEngineer= () =>{
         teamMembers.push(engineer);
         promptMenu();
     })
+};
+
+const promptIntern= ()  => {
+    console.log(`Add a New Intern`);
+
+    return inquirer.prompt([
+        {
+            type:'input',
+            name: 'name',
+            message: 'What is the name of the intern?',
+            validate: internName =>{
+                if(internName){
+                   return true; 
+                }else {
+                    console.log('Please enter the name of the intern');
+                    return false;
+                }
+            }
+        },
+        {
+            type: 'input',
+            name: 'employeeId',
+            message: 'Enter your employee ID',
+            validate: githubUsername =>{
+                if(githubUsername){
+                    return true;
+                }else {
+                    console.log('Please enter your employee ID  ');
+                    return false;
+                }
+            }
+            
+        },
+        {
+            type: 'input',
+            name: 'email',
+            message: 'Enter your email address',
+            validate: email =>{
+                if(email){
+                      return true;
+                } else {
+                    console.log('Please enter your email address');
+                    return false;
+                }
+            }
+        },
+        {
+            type: 'input',
+            name: 'school',
+            message: 'Enter your school name';
+            validate: school =>{
+                if(school){
+                    return true;
+                }else {
+                    console.log('Please enter your school name');
+                    return false;
+                }
+            }
+        }
+    ]).then(answers =>{
+        console.log(answers);
+        const engineer= new Intern(answers.name, answers.employeeId, answers.email, answers.githubUsername);
+        teamMembers.push(intern);
+        promptMenu();
+    })
+};
+
+const buildTeam= ()=> {
+    console.log(`Finished building team`);
+
+    if(!fs.existsSync(OUTPUT_DIR)){
+        fs.mkdir(OUTPUT_DIR)
+    }
+    fs.writeFileSync(outputPath, generateHtml(teamMembers), 'utf-8');
 }
+
+promptManager();
