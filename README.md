@@ -6,7 +6,6 @@ A manager
 WANTS to generate a webpage that displays his team's basic info
 SO THAT he has quick access to their emails and GitHub profiles
 
-
 ## Acceptance Criteria
 
 GIVEN a command-line application that accepts user input
@@ -27,4 +26,8 @@ THEN a user prompted to enter the intern’s name, ID, email, and school, and I 
 WHEN a user decides to finish building their team
 THEN a user exits the application, and the HTML is generated
 
+## Video Tutorial
 
+Video contains functionality demostration of the application and four passing tests.
+
+https://drive.google.com/file/d/1E1jlm6UZRfGLtcUwNhFdhR__36Wj3uGT/view
